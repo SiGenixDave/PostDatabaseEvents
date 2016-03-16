@@ -134,18 +134,25 @@ public class MainActivity extends Activity {
             String posDiff = arg[2];
 
             // Preparing post params
+            String info1 = "AHN1";
+            String info2 = "AHN2";
+            String info3 = "AHN3";
+            String info4 = "AHN4";
+            String info5 = "12345678";
 
             HashMap<String, String> params = new HashMap<String, String>();
-            params.put("input11", goalNo);
-            params.put("input22", cardNo);
-            params.put("input33", posDiff);
+            params.put("name", info1);
+            params.put("location", info2);
+            params.put("timeStamp", info3);
+            params.put("hwdid", info4);
+            params.put("rssi", info5);
 
             ServiceHandler serviceClient = new ServiceHandler();
 
             String json = null;
             // Android app running on emulator must use 10.0.2.2 (localhost doesn't work
             // json = serviceClient.performPostCall("http://10.0.2.2/football.php", params);
-            json = serviceClient.performPostCall("http://10.0.0.16/football.php", params);
+            json = serviceClient.performPostCall("http://192.168.1.140/AHNServe.php", params);
 
             Log.d("Prediction Request: ", "> " + json);
 
